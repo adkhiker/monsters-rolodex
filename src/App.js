@@ -1,6 +1,6 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
 /* constructor() {
   super();
@@ -11,28 +11,30 @@ import './App.css';
   
 }; */
 
-function App () {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        
-        <p>
-        Hello
-        </p>
+class App extends Component {
+  constructor() {
+    super();
 
-        <button>Change Text</button>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    this.state = {
+      string: "Hello Nemo!"
+    };
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+
+          <p>{this.state.string}</p>
+
+          <button onClick={() => this.setState({ string: "Hello"})}>
+            Change Text
+          </button>
+        </header>
+      </div>
+    );
+  }
 }
 
 export default App;
